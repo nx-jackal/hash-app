@@ -39,7 +39,7 @@ def init():
 
 
 def slow_hasher(string_to_hash):
-    """ Returns a SHA512 hash of a given string"""
+    """ Return a SHA512 hash of a given string"""
     # Just hash for 10 round is sufficient even if paranoid as current
     # computing power is very far from getting SHA-512 collision easily
     for cycle_count in range(HASH_ROUND):
@@ -49,13 +49,13 @@ def slow_hasher(string_to_hash):
 
 @app.route('/status')
 def status():
-    """Returns a simple healthy status"""
+    """Return a simple healthy status"""
     return "I'm Healthy!"
 
 
 @app.route('/random_hash')
 def random_hash():
-    """Returns a random hash."""
+    """Return a random hash."""
     random_int = int(random_float * 10)
     random_int = 1 if random_int < 1 else random_int
     
@@ -67,7 +67,7 @@ def random_hash():
 
 @app.route('/hash', methods=['GET'])
 def hash_string():
-    """ Returns a SHA512 hash of a given string, read from cache if available"""
+    """ Return a SHA512 hash of a given string, read from cache if available"""
     string_to_hash = request.args.get('string')
 
     if REDIS_ENABLED:
