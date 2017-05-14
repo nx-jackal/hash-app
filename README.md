@@ -14,6 +14,6 @@ Sample Requests:
     `curl -X GET http://localhost:5000/random_hash`
 
 
-App can make use of a redis server if present. Set the following environment variables to enable it:
+App can make use of a redis server if present. Set the follwing environment variables to enable it:
     `REDIS_ENABLED=True`
     `REDIS_SERVER=host/ip`
