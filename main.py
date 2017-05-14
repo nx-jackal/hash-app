@@ -11,11 +11,12 @@ app = Flask(__name__)
 
 ENTROPY_CONFIG = string.ascii_uppercase + string.digits
 HASH_ROUND = 10
-HASHER_PORT = 5000
 REDIS_SERVER = '127.0.0.1'
 REDIS_PORT = 6379
 REDIS_ENABLED = False
 REDIS_CONNECTOR = None
+SERVICE_INET = '0.0.0.0'
+SERVICE_PORT = 5000
 
 
 def init():
@@ -58,7 +59,7 @@ def random_hash():
     """Return a random hash."""
     random_int = int(random_float * 10)
     random_int = 1 if random_int < 1 else random_int
-    
+
     random_string = ''.join(random.choice(ENTROPY_CONFIG) for _ in range(random_int))
     hashed_string = slow_hasher(random_string)
 
@@ -92,4 +93,4 @@ def log(message):
 
 if __name__ == "__main__":
     init()
-    app.run(host='0.0.0.0', port=HASHER_PORT, debug=False)
+    app.run(host=SERVICE_INET, port=SERVICE_PORT, debug=False)
