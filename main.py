@@ -43,8 +43,10 @@ def slow_hasher(string_to_hash):
     """ Return a SHA512 hash of a given string"""
     # Just hash for 10 round is sufficient even if paranoid as current
     # computing power is very far from getting SHA-512 collision easily
+    hashed_string = string_to_hash
+
     for cycle_count in range(HASH_ROUND):
-        hashed_string = hashlib.sha512(string_to_hash).hexdigest()
+        hashed_string = hashlib.sha512(hashed_string).hexdigest()
     return hashed_string
 
 
