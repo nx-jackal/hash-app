@@ -1,0 +1,26 @@
+version: "3"
+services:
+  web:
+    image: ssteo/test-repo:app001
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "80:5000"
+    networks:
+      - webapi
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data:/data
+    networks:
+      - webapi
+networks:
+  webapi:
