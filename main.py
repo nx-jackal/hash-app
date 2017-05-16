@@ -101,4 +101,4 @@ def log(message):
 
 if __name__ == "__main__":
     init()
-    app.run(host=SERVICE_INET, port=SERVICE_PORT, debug=False)
+    app.run(host=SERVICE_INET, port=SERVICE_PORT, debug=True)
