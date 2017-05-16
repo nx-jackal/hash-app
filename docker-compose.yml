@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    image: ssteo/hasher:201705162042
+    image: ssteo/hasher:201705162115
     deploy:
       replicas: 2
       resources:
